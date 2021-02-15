@@ -1,3 +1,22 @@
+# As the name may already reveal, it works basically like a Fibonacci, but summing the last 3 (instead of 2) numbers of the sequence to generate the next. 
+# Well, you may have guessed it by now, but to be clear: 
+# you need to create a fibonacci function that given a signature array/list, returns the first n elements - signature included of the so seeded sequence.
+
+# Signature will always contain 3 numbers; n will always be a non-negative number; 
+# if n == 0, then return an empty array (except in C return NULL) and be ready for anything else which is not clearly specified ;)
+
+def tribonacci(signature,n)
+  if n < 3
+    return signature.first(n)
+  end
+  (n - 3).times do
+    signature.append(signature[-1] + signature[-2] + signature[-3])
+  end
+  signature
+end
+
+# The top solution is very similiar but doesn't do the first if statement, but the method is correct. 
+
 # A child is playing with a ball on the nth floor of a tall building. The height of this floor, h, is known.
 # He drops the ball out of the window. The ball bounces (for example), to two-thirds of its height (a bounce of 0.66).
 # His mother looks out of a window 1.5 meters from the ground.
