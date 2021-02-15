@@ -1,3 +1,23 @@
+# A child is playing with a ball on the nth floor of a tall building. The height of this floor, h, is known.
+# He drops the ball out of the window. The ball bounces (for example), to two-thirds of its height (a bounce of 0.66).
+# His mother looks out of a window 1.5 meters from the ground.
+# How many times will the mother see the ball pass in front of her window (including when it's falling and bouncing?
+
+def bouncingBall(h, bounce, window)
+    if h > 0 && (0...1) === bounce && window < h
+      count = 0
+      until h <= window do
+        h = h * bounce
+        h > window ? count += 2 : count += 1
+      end
+      return count
+    else
+      -1
+    end
+end
+
+# Definitely too wordy - the top solutions used recursion. I saw one use logarithms too which is super smart.
+
 # This time we want to write calculations using functions and get the results. Let's have a look at some examples:
 # seven(times(five)) # must return 35
 # four(plus(nine)) # must return 13
