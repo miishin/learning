@@ -1,3 +1,15 @@
+#Given an array (arr) as an argument complete the function countSmileys that should return the total number of smiling faces.
+#Rules for a smiling face:
+#Each smiley face must contain a valid pair of eyes. Eyes can be marked as : or ;
+#A smiley face can have a nose but it does not have to. Valid characters for a nose are - or ~
+#Every smiling face must have a smiling mouth that should be marked with either ) or D
+
+def count_smileys(arr)
+  arr.count { |face| /[:;][-~]*[)D]/.match(face) }
+end
+
+# =~ is a shorter way to do .match
+
 # As the name may already reveal, it works basically like a Fibonacci, but summing the last 3 (instead of 2) numbers of the sequence to generate the next. 
 # Well, you may have guessed it by now, but to be clear: 
 # you need to create a fibonacci function that given a signature array/list, returns the first n elements - signature included of the so seeded sequence.
