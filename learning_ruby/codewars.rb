@@ -1,3 +1,17 @@
+# Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, 
+# which is the number of times you must multiply the digits in num until you reach a single digit.
+
+def persistence(n)
+  persistence = 0
+  until n.to_s.length == 1 do
+    n = n.to_s.chars.map(&:to_i).reduce { |product, n| product = product * n}
+    persistence += 1
+  end
+  persistence
+end
+
+# Not the most Ruby solution
+
 #Given an array (arr) as an argument complete the function countSmileys that should return the total number of smiling faces.
 #Rules for a smiling face:
 #Each smiley face must contain a valid pair of eyes. Eyes can be marked as : or ;
