@@ -1,3 +1,39 @@
+# Divisors of 42 are : 1, 2, 3, 6, 7, 14, 21, 42. These divisors squared are: 1, 4, 9, 36, 49, 196, 441, 1764. 
+# The sum of the squared divisors is 2500 which is 50 * 50, a square!
+# Given two integers m, n (1 <= m <= n) we want to find all integers between m and n whose sum of squared divisors is itself a square.
+# https://www.codewars.com/kata/55aa075506463dac6600010d
+
+def list_squared(m, n)
+  result = []
+  m.upto(n) { |num| 
+    sum = sum_divisors(num)
+    if square?(sum)
+      result << [num, sum]
+    end
+  }
+  return result
+end
+
+def sum_divisors(n)
+  get_divisors(n).reduce { |sum, divisor| sum += divisor ** 2 }    
+end
+
+def get_divisors(n)
+  divisors = [1]
+  1.upto(Integer.sqrt(n)) { |i|
+    if n % i == 0
+      divisors += [i, n / i]
+    end
+  }
+  divisors.uniq
+end
+
+def square?(n)
+  Integer.sqrt(n) == Math.sqrt(n)
+end
+
+# My solution kept timing out, but that was because I was looping to n / 2 instead of sqrt(n). The top rated answer was a single 
+# map, which makes a lot of sense. Learnt a lot looking up how to optimize Ruby code. 
 
 # Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, 
 # which is the number of times you must multiply the digits in num until you reach a single digit.
