@@ -1,3 +1,14 @@
+# Write a function that will find all the anagrams of a word from a list. 
+# You will be given two inputs a word and an array with words. 
+# You should return an array of all the anagrams or an empty array if there are none. 
+# https://www.codewars.com/kata/523a86aa4230ebb5420001e1/
+
+def anagrams(word, words)
+  words.select { |w| w.chars.sort.join('') == word.chars.sort.join('') }
+end
+
+# Didn't have to join('') because Ruby will just compare the two character lists.
+
 # Divisors of 42 are : 1, 2, 3, 6, 7, 14, 21, 42. These divisors squared are: 1, 4, 9, 36, 49, 196, 441, 1764. 
 # The sum of the squared divisors is 2500 which is 50 * 50, a square!
 # Given two integers m, n (1 <= m <= n) we want to find all integers between m and n whose sum of squared divisors is itself a square.
