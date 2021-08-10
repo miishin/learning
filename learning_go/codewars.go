@@ -8,8 +8,6 @@ Strings passed in will consist of only letters and spaces.
 Spaces will be included only when more than one word is present.
 */
 
-import "strings"
-
 func SpinWords(str string) string {
   words := strings.Split(str, " ")
   for i, word := range words {
